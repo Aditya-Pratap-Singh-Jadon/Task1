@@ -1,0 +1,395 @@
+:root{
+    /*BG*/
+    --bg-color:#F9F5F3;           
+    --header-bg:#D3B6AB;          
+    --card-bg:#F0E5E1;            
+    --hobby-bg:#D4AA7D;           
+    --join-bg:#470B24;            
+    --ambition-bg:#A1E1BC;        
+    --footer-bg:#212529;
+    /*text*/
+    --text-color:#272727;
+    --hobby-text:#272727;
+    --join-text:#F9F5F3;
+    --ambition-text:#213F95;
+    --footer-text:#D3B6AB;
+    --footer-link:#E6D5CE;
+    --footer-link-hover:#C6EDC3;
+    /*skills*/
+    --skills-col:#A1E1BC;
+    --skills-headcol:#213F95;
+    --skill-pill-bg:#FFD1DC;
+    --skill-pill-text:#470B24;
+    /* boxshadow/dropshadow */
+    --dropshadow1:rgba(39,39,39,0.18);
+    --dropshadow2:rgba(71,11,36,0.20);
+    --dropshadow3:rgba(33,63,149,0.18);
+}
+
+.dark-mode{
+    /*BG*/
+    --bg-color:#212529;
+    --header-bg:#343A40;
+    --card-bg:#272727;
+    --hobby-bg:#006666;
+    --join-bg:#470B24;
+    --ambition-bg:#13594E;
+    --footer-bg:#0B1215;
+    /*text*/
+    --text-color:#F9F5F3;
+    --hobby-text:#AEEEEE;
+    --join-text:#F0E5E1;
+    --ambition-text:#F9F5F3;
+    --footer-text:#AEEEEE;
+    --footer-link:#40E0D0;
+    --footer-link-hover:#A1E1BC;
+    /*skills*/
+    --skills-col:#213F95;
+    --skills-headcol:#A1E1BC;
+    --skill-pill-bg:#343A40;
+    --skill-pill-text:#40E0D0;
+    /* boxshadow/dropshadow */
+    --dropshadow1:rgba(0,0,0,0.35);
+    --dropshadow2:rgba(0,102,102,0.28);
+    --dropshadow3:rgba(64,224,208,0.18);
+}
+
+body{
+    background-color:var(--bg-color);
+    color:var(--text-color);
+    margin:0;
+    padding:0;
+    transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
+}
+h1,h2,h3,h4,h5,h6,p,li,a{
+    color:inherit;
+}
+
+.headerbox{
+    margin-top:10px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    margin-bottom:30px;
+}
+
+header{
+    margin:15px auto;
+    padding:5px;
+    background-color:var(--header-bg);
+    display:flex;
+    justify-content:space-between;
+    border-radius:20px;
+    align-items:center;
+    max-width:1400px;
+    transition:
+    background-color 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.left{
+    display:flex;
+    margin:5px;
+    padding:2px;
+}
+.right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#date{
+    min-width: 230px;
+    text-align: center;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    padding: 10px 16px;
+    border-radius: 14px;
+    background-color: rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    transition: background-color 0.5s ease,
+    color 0.5s ease;
+}
+.darkmodet{
+    width:190px;
+    height:72px;
+    border-radius:100px;
+    overflow:hidden;
+    position:relative;
+    cursor:pointer;
+    background-image:url(daylightdesert.jpg);
+    background-size:cover;
+    background-position:center;
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.25);
+    transition:0.8s ease;
+    flex-shrink:0;
+}
+
+#toggle-fill{
+    position:absolute;
+    top:0;
+    right:0;
+    width:0%;
+    height:100%;
+    background-image:url(nightlightpond.jpg);
+    background-size:cover;
+    background-position:center;
+    z-index:1;
+    transition:width 0.8s ease;
+}
+.darkmodet.active #toggle-fill{
+    width:100%;
+}
+#toggle-knob{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    position:absolute;
+    top:7px;
+    right:8px;
+    z-index:5;
+    background-image:url(nightlightpond.jpg);
+    background-size:cover;
+    background-position:center;
+    border:
+    2px solid rgba(255, 255, 255, 0.35);
+    box-shadow:
+    0 4px 14px rgba(0,0,0,0.28);
+    transition:
+    transform 0.8s ease,
+    box-shadow 0.8s ease,
+    background-image 0.8s ease;
+}
+.darkmodet.active #toggle-knob{
+    transform:translateX(-116px);
+    background-image:url(daylightdesert.jpg);
+    box-shadow:
+    0 4px 18px rgba(64,224,208,0.28);
+}
+
+.box{
+    max-width:1100px;
+    margin:auto;
+}
+#box{
+    position:relative;
+    background:var(--card-bg);
+    margin:35px auto;
+    min-height:460px;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow: 14px 14px 22px var(--dropshadow1);
+    transition: background-color 0.5s ease,
+    box-shadow 0.5s ease;
+}
+.about-title{
+    position:absolute;
+    left:80px;
+    top:42%;
+    transform:translateY(-50%);
+    z-index:2;
+    transition:0.7s ease;
+}
+.about-title h1{
+    font-size:4.5rem;
+    font-weight:700;
+    letter-spacing:6px;
+    margin:0;
+    color:var(--skills-headcol);
+}
+.image{
+    position:absolute;
+    right:40px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:5;
+    transition:0.8s ease;
+}
+.image img{
+    height:400px;
+    border-radius:18px;
+    object-fit:cover;
+    cursor:pointer;
+    box-shadow:
+    0 10px 20px rgba(0,0,0,0.18);
+}
+.intro{
+    position:absolute;
+    right:-700px;
+    top:50%;
+    transform:translateY(-50%);
+    width:48%;
+    opacity:0;
+    transition:0.8s ease;
+    color:var(--text-color);
+}
+.intro h2{
+    margin-bottom:20px;
+    color:var(--skills-headcol);
+}
+.intro p{
+    line-height:1.8;
+    font-size:1.05rem;
+    text-align:justify;
+}
+#box.active .image{
+    right:63%;
+}
+#box.active .intro{
+    right:40px;
+    opacity:1;
+}
+#box.active .about-title{
+    opacity:0;
+    transform:
+    translateY(-50%)
+    translateX(-80px);
+}
+
+.hobbiessec{
+    width:80%;
+    margin:auto;
+}
+.hobbyhead{
+    color:var(--text-color);
+}
+.hobbies{
+    position:relative;
+    margin:20px auto;
+    padding:1px 20px;
+    border-radius:15px;
+    background-color:var(--hobby-bg);
+    color:var(--hobby-text);
+    box-shadow:
+    7px 7px 18px var(--dropshadow2);
+    max-width:1200px;
+    transition: background-color 0.5s ease,
+    color 0.5s ease,
+    transform 0.3s ease,
+    box-shadow 0.5s ease;
+}
+.hobbies:hover{
+    transform:translateY(-4px);
+    box-shadow:
+    0 15px 25px var(--dropshadow2);
+}
+
+.card{
+    width:80%;
+    margin:auto;
+}
+.skills h2{
+    margin:40px auto;
+    max-width:120px;
+    padding:12px;
+    background-color:var(--skills-col);
+    color:var(--skills-headcol);
+    text-align:center;
+    border-radius:40px;
+    transition: background-color 0.5s ease,
+    color 0.5s ease;
+}
+.skills ul{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:40px;
+    list-style:none;
+}
+.skills ul li{
+    background-color:var(--skill-pill-bg);
+    color:var(--skill-pill-text);
+    font-size:18px;
+    margin:2px auto;
+    padding:15px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.3s ease;
+    box-shadow:
+    6px 6px 16px var(--dropshadow3);
+}
+.skills li:hover{
+    transform:
+    translateY(-6px)
+    scale(1.04);
+    cursor:pointer;
+}
+
+.join{
+    width:80%;
+    margin:auto;
+    margin-top:30px;
+    margin-bottom:10px;
+    color:var(--text-color);
+}
+.joining{
+    width:80%;
+    margin:auto;
+    background-color:var(--join-bg);
+    color:var(--join-text);
+    padding:1px 20px;
+    border-radius:20px;
+    box-shadow:
+    8px 8px 22px var(--dropshadow2);
+    transition:
+    background-color 0.5s ease,
+    color 0.5s ease,
+    transform 0.3s ease,
+    box-shadow 0.5s ease;
+}
+.joining:hover{
+    transform:translateY(-4px);
+}
+
+.ambition{
+    width:80%;
+    margin:auto;
+    margin-top:30px;
+    margin-bottom:10px;
+    color:var(--text-color);
+}
+.ambitionbody{
+    width:80%;
+    margin:auto;
+    background-color:var(--ambition-bg);
+    color:var(--ambition-text);
+    padding:1px 20px;
+    border-radius:20px;
+    box-shadow:
+    8px 8px 22px var(--dropshadow3);
+    margin-bottom:60px;
+    transition: background-color 0.5s ease,
+    color 0.5s ease,
+    transform 0.3s ease,
+    box-shadow 0.5s ease;
+}
+.ambitionbody:hover{
+    transform:translateY(-4px);
+}
+
+footer{
+    background-color:var(--footer-bg);
+    color:var(--footer-text);
+    padding:30px;
+    text-align:center;
+    transition: background-color 0.5s ease,
+    color 0.5s ease;
+}
+footer a{
+    color:var(--footer-link);
+    text-decoration:none;
+    transition:0.3s ease;
+}
+footer a:hover{
+    color:var(--footer-link-hover);
+}
+
+header, #box, .hobbies, .skills ul li, .joining, .ambitionbody, footer{
+    transition: background-color 0.5s ease,
+    color 0.5s ease,
+    box-shadow 0.5s ease,
+    transform 0.3s ease;
+}
